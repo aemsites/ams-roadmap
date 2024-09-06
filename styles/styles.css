@@ -34,16 +34,16 @@
   --heading-font-family: 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
 
   /* body sizes */
-  --body-font-size-l: 28px;
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-l: 22px;
+  --body-font-size-m: 17px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 12px;
 
   /* heading sizes */
-  --heading-font-size-xl: 44px;
+  --heading-font-size-xl: 42px;
   --heading-font-size-l: 34px;
-  --heading-font-size-m: 30px;
-  --heading-font-size-s: 24px;
+  --heading-font-size-m: 28px;
+  --heading-font-size-s: 18px;
 
   @media (width >= 900px) {
     /* body sizes */
