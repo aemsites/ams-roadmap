@@ -6,6 +6,7 @@ function animateHeader($hdr) {
   const $scrollableContainer = document.querySelector('#parallax-page-wrapper');
 
   if (!$hdr || !$parallax || !$scrollableContainer) {
+    $hdr.classList.add('invert');
     return;
   }
 
