@@ -3,14 +3,33 @@ import { div, ul, li, p, a, span, sup } from '../../scripts/dom-helpers.js';
 import { scrollToMe, fixYears } from '../../scripts/animations.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 
-// Helper function to generate all quarters between start and end
+// Generate all quarters between start and end
 function generateYearQuarterRange(start, end) {
-  const [startYear, startQuarter] = start.split('-');
-  const [endYear, endQuarter] = end.split('-');
+  let [startYear, startQuarter] = start.split('-');
+  let [endYear, endQuarter] = end.split('-');
+
+  // Adjust start to one quarter earlier
+  startQuarter = parseInt(startQuarter.replace('Q', ''), 10) - 1;
+  if (startQuarter === 0) {
+    startQuarter = 4;
+    startYear = parseInt(startYear, 10) - 1;
+  }
+
+  // Adjust end to one quarter later
+  endQuarter = parseInt(endQuarter.replace('Q', ''), 10) + 1;
+  if (endQuarter === 5) {
+    endQuarter = 1;
+    endYear = parseInt(endYear, 10) + 1;
+  }
+
+  // fill in anny empty quarters
   const yearQuarterList = [];
   let currentYear = parseInt(startYear, 10);
-  let currentQuarter = parseInt(startQuarter.replace('Q', ''), 10);
-  while (currentYear < parseInt(endYear, 10) || (currentYear === parseInt(endYear, 10) && currentQuarter <= parseInt(endQuarter.replace('Q', ''), 10))) {
+  let currentQuarter = parseInt(startQuarter, 10);
+  while (
+    currentYear < parseInt(endYear, 10)
+    || (currentYear === parseInt(endYear, 10) && currentQuarter <= parseInt(endQuarter, 10))
+  ) {
     yearQuarterList.push({ year: currentYear, quarter: `Q${currentQuarter}` });
     currentQuarter += 1;
     if (currentQuarter > 4) {
