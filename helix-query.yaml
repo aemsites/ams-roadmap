@@ -18,7 +18,7 @@ indices:
         select: head > meta[name="release-quarter"]
         value: attribute(el, 'content')
       btn:
-        select: head > meta[name="learn-move"]
+        select: head > meta[name="learn-more"]
         value: attribute(el, 'content')
       sort:
         select: head > meta[name="sort-order"]
