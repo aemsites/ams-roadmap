@@ -17,3 +17,9 @@ indices:
       quarter:
         select: head > meta[name="release-quarter"]
         value: attribute(el, 'content')
+      btn:
+        select: head > meta[name="learn-move"]
+        value: attribute(el, 'content')
+      sort:
+        select: head > meta[name="sort-order"]
+        value: attribute(el, 'content')
