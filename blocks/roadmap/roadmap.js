@@ -95,7 +95,7 @@ export default function decorate(block) {
   let activePos;
   let yIndex = 0;
   let qIndex = 0;
-  let pIndex = 0;
+  let pTabIndex = 1;
 
   block.innerHTML = '';
 
@@ -180,7 +180,7 @@ export default function decorate(block) {
           const $learnMoreLink = btn.toLowerCase() !== 'hide' ? p(a({ class: 'btn', href: path }, 'Learn more')) : '';
 
           // Create the project element and append it to the project list
-          const $project = li({ class: 'p', style: `--index:${n}`, tabindex: pIndex },
+          const $project = li({ class: 'p', style: `--index:${n}`, tabindex: pTabIndex },
             div($pTitle,
               div({ class: 'tooltip' },
                 div(tip,
@@ -207,7 +207,7 @@ export default function decorate(block) {
           });
 
           $projects.appendChild($project);
-          pIndex += 1; // Increment only for new years
+          pTabIndex += 1; // Increment only for new years
         });
 
         $years.appendChild($year);

@@ -108,7 +108,7 @@ body {
     }
 
     &.img-2 { /* dots */
-      transform: translate3d(0, -700px, -2.4px) scale(3.5);
+      transform: translate3d(0, -60vh, -2.4px) scale(3.4);
     }
 
     &.img-3 { /* background */
