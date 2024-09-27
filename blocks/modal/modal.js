@@ -16,23 +16,23 @@ function showIframe(iFrame) {
       iFrame.style.height = `${contentHeight}px`;
       iFrame.parentElement.parentElement.classList.add('appear');
     } else {
+      // eslint-disable-next-line no-console
       console.warn('Iframe document is not accessible.');
     }
   }
 
-  iFrame.onload = function () {
+  iFrame.onload = () => {
     setIframeHeight();
-
     const iframeDoc = iFrame.contentDocument || iFrame.contentWindow?.document;
     if (iframeDoc) {
       const observer = new MutationObserver(setIframeHeight);
       observer.observe(iframeDoc.body, { childList: true, subtree: true });
     }
-
     window.addEventListener('resize', setIframeHeight);
   };
 
-  iFrame.onerror = function () {
+  iFrame.onerror = () => {
+    // eslint-disable-next-line no-console
     console.error('Error loading iframe content.');
   };
 }
@@ -70,11 +70,20 @@ export async function createModal(path) {
 
   $closeBtn.addEventListener('click', closeDialog);
 
+  const { left, right, top, bottom } = $dialog.getBoundingClientRect();
+
   // close on click outside the dialog
   $dialog.addEventListener('click', (e) => {
-    const { left, right, top, bottom } = $dialog.getBoundingClientRect();
     const { clientX, clientY } = e;
     if (clientX < left || clientX > right || clientY < top || clientY > bottom) closeDialog();
+  });
+
+  // add class hover to dialog when mouse is over it
+  $dialog.addEventListener('mouseover', (e) => {
+    const { clientX, clientY } = e;
+    if (clientX < left || clientX > right || clientY < top || clientY > bottom) {
+      $dialog.classList.toggle('hover');
+    }
   });
 
   return {

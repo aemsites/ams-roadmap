@@ -20,8 +20,7 @@ function getMarginWidth() {
   // return (vw - pageWidth) / 2 + 30;
   // console.log(Math.max((vw - pageWidth) / 2 + 30, 30))
   // check margins on mobile
-  const margin = Math.max((vw - pageWidth) / 2 + 30, 30);
-  return margin;
+  return Math.max((vw - pageWidth) / 2 + 30, 30);
 }
 
 export function scrollToMe(container, me, duration) {
@@ -49,22 +48,4 @@ export function scrollToMe(container, me, duration) {
   }
 
   requestAnimationFrame(animation);
-}
-
-export function fixYears(block, years) {
-  // get center position
-  const leftPosition = (window.innerWidth / 2) - 50;
-
-  block.addEventListener('scroll', () => {
-    const scrollLeftPos = block.scrollLeft;
-
-    years.forEach((year) => {
-      const yearLeftPos = year.offsetLeft;
-      if (scrollLeftPos >= yearLeftPos - leftPosition) {
-        year.classList.add('fixed');
-      } else {
-        year.classList.remove('fixed');
-      }
-    });
-  });
 }

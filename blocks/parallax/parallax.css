@@ -21,6 +21,26 @@ body {
 #parallax {
   height: 60vh; /* match */
   transform-style: preserve-3d;
+  overflow: hidden;
+
+  &.loaded {
+    overflow: visible;
+  }
+
+  &.loaded .overlay {
+    position: absolute;
+    inset: 0;
+    top: calc(var(--nav-height) * -1);
+    left: 15px;
+    max-width: var(--page-width);
+    height: 100%;
+    margin: 0 auto;
+    box-shadow: 0 0 200px #000;
+  }
+
+  &.loaded .layer {
+    display: block;
+  }
 
   .layer {
     position: absolute;
@@ -28,10 +48,47 @@ body {
     background-position: bottom center;
     background-size: cover;
     height: 100vh;
+    display: none;
+
+    &.content-0 { /* foreground text */
+      color: #fff;
+      opacity: 0;
+      filter: blur(20px);
+      scale: 100%;
+      margin-left: -120px;
+      transition: all 1s;
+
+      &.animate {
+        opacity: 1;
+        filter: blur(0);
+        scale: 100%;
+        margin-left: 0;
+      }
+
+      > div {
+        width: 500px;
+      }
+
+      h2 {
+        font-size: var(--heading-font-size-xl);
+        font-weight: 600;
+        margin: 0;
+        text-shadow: 2px 2px 8px rgb(0 0 0 / 90%);
+      }
+
+      p {
+        font-size: var(--body-font-size-l);
+        font-weight: 300;
+        line-height: 30px;
+        margin: 10px 0 0;
+        text-shadow: 2px 2px 8px rgb(0 0 0 / 90%);
+      }
+    }
 
     /*
+      Parallax effect
       translate3d:
-      (X-axis [-left/+right], Y-axis [-up/+down], depth [-forward/+backward]
+      (X-axis [-left/+right], Y-axis [-up/+down], depth [-forward/+backward])
     */
     &.content-0 { /* foreground */
       transform: translate3d(40%, 30%, -1.2px) scale(1.6);
@@ -70,55 +127,3 @@ body {
     }
   }
 }
-
-/* design */
-#parallax {
-  .overlay {
-    position: absolute;
-    inset: 0;
-    top: calc(var(--nav-height) * -1);
-    left: 15px; /* todo: p10 strange alignment fix */
-    max-width: var(--page-width);
-    height: 100%;
-    margin: 0 auto;
-    box-shadow: 0 0 200px #000;
-  }
-
-  .layer {
-    #parallax.loaded &.content-0 {
-      opacity: 1;
-      filter: blur(0);
-      scale: 100%;
-      margin-left: 0;
-    }
-
-    &.content-0 { /* foreground text */
-      color: #fff;
-      opacity: 0;
-      filter: blur(20px);
-      scale: 100%;
-      margin-left: -120px;
-      transition: all 1s;
-
-      > div {
-        width: 500px;
-      }
-
-      h2 {
-        font-size: var(--heading-font-size-xl);
-        font-weight: 600;
-        margin: 0;
-        text-shadow: 2px 2px 8px rgb(0 0 0 / 90%);
-      }
-
-      p {
-        font-size: var(--body-font-size-l);
-        font-weight: 300;
-        line-height: 30px;
-        margin: 10px 0 0;
-        text-shadow: 2px 2px 8px rgb(0 0 0 / 90%);
-      }
-    }
-  }
-}
-
