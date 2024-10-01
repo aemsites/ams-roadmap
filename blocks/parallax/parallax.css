@@ -93,9 +93,9 @@ body {
     &.content-0 { /* foreground */
       --margin-left: max(100px, calc(100vw - var(--page-width) + 100px));
 
-      transform: translate3d(var(--margin-left), 16vw, -1.2px) scale(2);
+      transform: translate3d(var(--margin-left), 16vw, -1.1px) scale(2);
       @media (width < 1200px) { transform: translate3d(100px, 30vw, -1px) scale(2) }
-      @media (width < 800px) { transform: translate3d(0, 0, -1px) scale(1.6)  }
+      @media (width < 800px) { transform: translate3d(0, 0, -1px) scale(1.6) }
     }
 
     &.img-1 { /* path */
