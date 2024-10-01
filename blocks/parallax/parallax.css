@@ -72,7 +72,7 @@ body {
         font-size: var(--heading-font-size-xl);
         font-weight: 600;
         margin: 0;
-        text-shadow: 2px 2px 8px rgb(0 0 0 / 90%);
+        text-shadow: 2px 2px 8px rgb(0 0 0 / 100%);
       }
 
       p {
@@ -80,7 +80,7 @@ body {
         font-weight: 300;
         line-height: 30px;
         margin: 10px 0 0;
-        text-shadow: 2px 2px 8px rgb(0 0 0 / 90%);
+        text-shadow: 2px 2px 8px rgb(0 0 0 / 100%);
       }
     }
 
@@ -91,15 +91,19 @@ body {
     */
 
     &.content-0 { /* foreground */
-      --margin-left: max(100px, calc(100vw - var(--page-width) + 300px));
+      --margin-left: max(100px, calc(100vw - var(--page-width) + 100px));
 
-      transform: translate3d(var(--margin-left), 16vw, -1px) scale(2);
+      transform: translate3d(var(--margin-left), 16vw, -1.2px) scale(2);
       @media (width < 1200px) { transform: translate3d(100px, 30vw, -1px) scale(2) }
       @media (width < 800px) { transform: translate3d(0, 0, -1px) scale(1.6)  }
     }
 
     &.img-1 { /* path */
-      transform: translate3d(0, -4vw, -2px) scale(3.2);
+      background-position: right center;
+
+      @media (width > 2800px) { transform: translate3d(0, -10vw, -1.8px) scale(3); }
+
+      transform: translate3d(0, -16vw, -1.8px) scale(3);
       @media (width < 1800px) { transform: translate3d(0, -16vw, -1.8px) scale(3) }
       @media (width < 1200px) { transform: translate3d(0, -32vw, -2px) scale(3) }
       @media (width < 800px) { transform: translate3d(0, -340px, -1px) scale(2) }
