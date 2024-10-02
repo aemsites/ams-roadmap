@@ -189,14 +189,13 @@ main {
     padding: 10px 40px;
     background: #fff;
     box-sizing: border-box;
-    box-shadow: 0 0 100px rgb(0 0 0 / 30%);  /* Right shadow */
+    box-shadow: 0 0 100px rgb(0 0 0 / 30%);
   }
 
   .default-content-wrapper {
     padding-bottom: 60px !important;
     font-weight: 300;
     line-height: 1.4em;
-
 
     picture img {
       max-width: 100%;
