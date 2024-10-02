@@ -1,6 +1,6 @@
 /* stylelint-disable declaration-block-single-line-max-declarations, no-descending-specificity, rule-empty-line-before, color-function-notation */
 main > .section > div.roadmap-wrapper {
-  --background: #232323;
+  --background: #1f1f1f;
   --lines: #616161;
   --index: 0;
   --blue-rgb: 48, 135, 230; /* # */
@@ -28,6 +28,10 @@ main > .section > div.roadmap-wrapper {
 
   .roadmap {
     width: min(100%, 2000px);
+    background: url('/blocks/roadmap/background.jpg');
+    background-size: 110%;
+    background-position: 0 100px;
+    transition: background-position 400ms ease-in-out;
 
     .heading {
       padding: 30px 0 20px;
@@ -303,8 +307,8 @@ main > .section > div.roadmap-wrapper {
               filter: brightness(1.1);
             }
           }
-          &:hover > div { background: linear-gradient(to right, rgba(var(--clr-rgb), .1), var(--background)); }
-          &.active > div { background: linear-gradient(to right, rgba(var(--clr-rgb), .4), var(--background)); }
+          &:hover > div { background: linear-gradient(to right, rgba(var(--clr-rgb), .1), transparent) }
+          &.active > div { background: linear-gradient(to right, rgba(var(--clr-rgb), .4), transparent); }
           .btn:hover {
             background: transparent;
             box-shadow: 0 0 10px 4px rgba(var(--clr-rgb), .6);

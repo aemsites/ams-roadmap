@@ -249,8 +249,19 @@ export default function decorate(block) {
       }
       const $left = div({ class: 'left' }, div());
       const $right = div({ class: 'right' }, div());
-      $left.addEventListener('click', () => scroll(-1));
-      $right.addEventListener('click', () => scroll(1));
+      let currentPosX = 0;
+      const moveDistance = 40;
+      $left.addEventListener('click', () => {
+        scroll(-1);
+        currentPosX -= moveDistance;
+        block.style.backgroundPosition = `${currentPosX}px 100px`;
+      });
+
+      $right.addEventListener('click', () => {
+        scroll(1);
+        currentPosX += moveDistance;
+        block.style.backgroundPosition = `${currentPosX}px 100px`;
+      });
 
       // keyboard navigation
       document.addEventListener('keydown', (e) => {
