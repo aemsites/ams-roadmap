@@ -216,6 +216,9 @@ export default function decorate(block) {
         $quarter.appendChild($projects);
       });
 
+      const $fg = div({ class: 'fg' });
+      const $bg = div({ class: 'bg' });
+
       const quarterObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) entry.target.classList.add('on');
@@ -249,18 +252,25 @@ export default function decorate(block) {
       }
       const $left = div({ class: 'left' }, div());
       const $right = div({ class: 'right' }, div());
-      let currentPosX = 0;
-      const moveDistance = 20;
+
+      let bgCurrPosX = 0;
+      let fgCurrPosX = 0;
+      const fgDistance = 30;
+      const bgDistance = 15;
       $left.addEventListener('click', () => {
         scroll(-1);
-        currentPosX -= moveDistance;
-        block.style.backgroundPosition = `${currentPosX}px 100px`;
+        fgCurrPosX += fgDistance;
+        bgCurrPosX += bgDistance;
+        $fg.style.backgroundPosition = `${fgCurrPosX}px center`;
+        block.style.backgroundPosition = `${bgCurrPosX}px center`;
       });
 
       $right.addEventListener('click', () => {
         scroll(1);
-        currentPosX += moveDistance;
-        block.style.backgroundPosition = `${currentPosX}px 100px`;
+        fgCurrPosX -= fgDistance;
+        bgCurrPosX -= bgDistance;
+        $fg.style.backgroundPosition = `${fgCurrPosX}px center`;
+        block.style.backgroundPosition = `${bgCurrPosX}px center`;
       });
 
       // keyboard navigation
@@ -271,7 +281,9 @@ export default function decorate(block) {
 
       const $timeline = div({ class: 'timeline' }, $years, $left, $right);
 
-      block.append($heading, $timeline, $disclaimer);
+      $fg.append($heading, $timeline, $disclaimer);
+      $bg.append($fg);
+      block.append($bg);
 
       // scroll to start for initial scroll
       const roadMapObserver = new IntersectionObserver((entries, observer) => {
