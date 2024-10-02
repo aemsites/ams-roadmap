@@ -250,7 +250,7 @@ export default function decorate(block) {
       const $left = div({ class: 'left' }, div());
       const $right = div({ class: 'right' }, div());
       let currentPosX = 0;
-      const moveDistance = 40;
+      const moveDistance = 20;
       $left.addEventListener('click', () => {
         scroll(-1);
         currentPosX -= moveDistance;
