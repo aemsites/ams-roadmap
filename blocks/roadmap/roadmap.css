@@ -29,15 +29,11 @@ main > .section > div.roadmap-wrapper {
   .roadmap {
     width: min(100%, 2000px);
     background: url('/blocks/roadmap/dots.jpg');
-    background-size: 120%;
-    background-position: 0 center;
-    background-repeat: no-repeat;
-    transition: background-position 450ms ease-out;
 
     .fg { background: url('/blocks/roadmap/dots-fg.png') }
     .bg { background: url('/blocks/roadmap/dots-bg.png') }
-    .bg, .fg {
-      background-size: 110%;
+    &, .bg, .fg {
+      background-size: cover;
       background-position: 0 center;
       background-repeat: no-repeat;
       transition: background-position 450ms ease-out;
