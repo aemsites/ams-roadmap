@@ -255,7 +255,7 @@ export default function decorate(block) {
 
       let bgCurrPosX = 0;
       let fgCurrPosX = 0;
-      const fgDistance = 30;
+      const fgDistance = 40;
       const bgDistance = 15;
       $left.addEventListener('click', () => {
         scroll(-1);
