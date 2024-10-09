@@ -80,9 +80,10 @@ export async function createModal(path) {
 
   // add class hover to dialog when mouse is over it
   $dialog.addEventListener('mouseover', (e) => {
-    const { clientX, clientY } = e;
-    if (clientX < left || clientX > right || clientY < top || clientY > bottom) {
-      $dialog.classList.toggle('hover');
+    if (!$content.contains(e.target)) {
+      $dialog.classList.add('hover');
+    } else {
+      $dialog.classList.remove('hover');
     }
   });
 
