@@ -26,7 +26,7 @@ indices:
   projects-drafts:
     include:
       - '/projects-drafts/*'
-    target: /projects-drafts/project-index.json
+    target: /projects-drafts/projects-drafts-index.json
     properties:
       project:
         select: head > meta[name="project-title"]
