@@ -23,3 +23,26 @@ indices:
       sort:
         select: head > meta[name="sort-order"]
         value: attribute(el, 'content')
+  projects-drafts:
+    include:
+      - '/projects-drafts/*'
+    target: /projects-drafts/project-index.json
+    properties:
+      project:
+        select: head > meta[name="project-title"]
+        value: attribute(el, 'content')
+      description:
+        select: head > meta[name="project-description"]
+        value: attribute(el, 'content')
+      year:
+        select: head > meta[name="release-year"]
+        value: attribute(el, 'content')
+      quarter:
+        select: head > meta[name="release-quarter"]
+        value: attribute(el, 'content')
+      btn:
+        select: head > meta[name="learn-more"]
+        value: attribute(el, 'content')
+      sort:
+        select: head > meta[name="sort-order"]
+        value: attribute(el, 'content')
